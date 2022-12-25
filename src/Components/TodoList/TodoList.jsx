@@ -1,12 +1,17 @@
 import React from "react";
-import "./TodoList.css";
 
-const TodoList = ({ todolist }) => {
+const TodoList = ({ todos, deleteHandler }) => {
   return (
     <div>
-      <div>
-        <h1>{todolist}</h1>
-      </div>
+      {todos.map((todo, index) => {
+        localStorage.setItem("todo", todo);
+        return (
+          <h3 key={index}>
+            {todo} &nbsp;{" "}
+            <button onClick={() => deleteHandler(index)}>Delete</button>
+          </h3>
+        );
+      })}
     </div>
   );
 };

@@ -1,0 +1,33 @@
+.card {
+  margin: 5vh 0vw 0vh 40vw;
+}
+
+.card-title {
+  font-size: 1em;
+  text-shadow: 2px 2px 2px gray;
+}
+
+.card-body input {
+  padding: 5px 5px;
+  margin-right: 10px;
+}
+.card-body button {
+  padding: 7px 7px;
+  color: #f1f1f1;
+  background-color: #1098ad;
+  border-style: none;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.card-body button:hover {
+  background-color: green;
+  color: #f1f1f1;
+  box-shadow: 4px 4px 4px gray;
+}
+
+.error-msg {
+  color: red;
+  font: 0.1em;
+  margin-left: 100px;
+}

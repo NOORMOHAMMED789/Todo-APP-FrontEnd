@@ -35,7 +35,6 @@ const TodoComp = () => {
       <div className="card-title">
         <h1>Online ToDo Application</h1>
       </div>
-
       <form onSubmit={submitHandler} className="card-body">
         <input
           type="text"

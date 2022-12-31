@@ -1,0 +1,123 @@
+* {
+  font-family: sans-serif;
+}
+body {
+  background-color: rgba(178, 236, 222, 0.7);
+}
+
+.container {
+  width: 26vw;
+  height: 43vh;
+  border: 1px solid black;
+  margin-left: 32vw;
+
+  background: linear-gradient(
+    rgb(171, 250, 125),
+    rgb(233, 189, 233),
+    rgb(114, 222, 226)
+  );
+  padding: 3vw 3vh;
+  margin-top: 15vh;
+  border-radius: 15px;
+  border-style: none;
+  box-shadow: 20px 22px 23px gray;
+}
+
+.login_title {
+  margin-left: 10px;
+  font-style: italic;
+}
+
+.login-body {
+  margin-top: 10px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  width: 21vw;
+  padding: 8px 8px;
+  font-size: 16px;
+  border-radius: 6px;
+}
+
+.label {
+  margin: 4px;
+}
+
+.checkbox {
+  margin-top: 15px;
+  margin-left: -23vw;
+}
+
+.remember {
+  margin-left: 30px;
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+}
+
+.forgot1 {
+  margin-left: 16.5vw;
+  font-size: 12px;
+  padding: 5px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.login-btn {
+  padding: 5px 5px;
+  width: 22vw;
+  font-weight: 300;
+  border-radius: 5px;
+  border-style: none;
+  margin-left: 10px;
+}
+.login-btn:hover {
+  background-color: #1098ad;
+  color: white;
+}
+.login-footer {
+  margin-top: 0.2vh;
+  margin-left: 5vw;
+}
+
+.emailerror {
+  font-size: 0.7em;
+  color: red;
+}
+
+.passerror {
+  font-size: 0.7em;
+  color: red;
+}
+
+.singup-btn {
+  font-size: 0.8rem;
+  padding: 2px 2px;
+  color: red;
+  border-style: none;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.login_show {
+  position: absolute;
+  font-size: 0.7rem;
+  margin-left: 20vw;
+  margin-top: 16.5vh;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 576px) {
+  .container {
+    width: auto;
+    margin-left: 0vw;
+  }
+  .input {
+    width: 100%;
+    padding: 8px 40px;
+    font-size: 16px;
+    border-radius: 6px;
+  }
+}

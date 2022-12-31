@@ -5,7 +5,7 @@ import "./TodoList.css";
 const TodoList = ({ todos, deleteHandler }) => {
   useEffect(() => {}, []);
   return (
-    <div>
+    <div className="todos">
       {todos.map((todo, index) => {
         return (
           <h3 key={index} className="todolist-body">

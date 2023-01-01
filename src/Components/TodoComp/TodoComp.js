@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./TodoComp.css";
 import TodoList from "../TodoList/TodoList";
 import { getToken } from "../../setLocalstroage";
 import { useNavigate } from "react-router-dom";
+
+const URL = process.env.REACT_APP_API_URL || "http://localhost:3001";
 
 const TodoComp = () => {
   const navigate = useNavigate();
@@ -15,8 +17,46 @@ const TodoComp = () => {
     setTask(e.target.value);
   };
 
-  const submitHandler = (e) => {
+  useEffect(() => {
+    const token = getToken("token");
+    console.log(token);
+    fetch(`${URL}/api/v1/todo`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+    })
+      .then((response) => {
+        if (response.status === 403) return navigate("/");
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Fetched data", data.todos);
+        setTodos(data.todos);
+      });
+  }, []);
+
+  const SubmitHandler = (e) => {
     e.preventDefault();
+    console.log(todos);
+    const token = getToken("token");
+    console.log(token);
+    fetch(`${URL}/api/v1/todo`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+      body: JSON.stringify({ title: task }),
+    })
+      .then((response) => {
+        if (response.status === 403) return navigate("/");
+        return response.json();
+      })
+      .then((data) => {
+        console.log("posted data", data);
+      });
     if (task === "") {
       setErrorMsg("Can't enter the empty Todo");
       setTimeout(() => {
@@ -56,14 +96,14 @@ const TodoComp = () => {
           LOGOUT
         </div>
       )}
-      <form onSubmit={submitHandler} className="card-body">
+      <form onSubmit={SubmitHandler} className="card-body">
         <input
           type="text"
           value={task}
           onChange={changeHandler}
           placeholder="Enter your todo here ..."
         />
-        <button onClick={submitHandler}>Add Todo</button>
+        <button onClick={SubmitHandler}>Add Todo</button>
         <p className="error-msg">{errorMsg}</p>
       </form>
       <TodoList todos={todos} deleteHandler={deleteHandler} />

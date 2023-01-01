@@ -72,6 +72,13 @@ const Signup = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        if (data.status === "Failed") {
+          alert("User Already Exists.Please, Login !!!");
+          navigate("/", { replace: true });
+        } else {
+          alert("Registration Successful");
+          navigate("/", { replace: true });
+        }
       })
       .catch((e) => {
         alert(e.message);

@@ -1,8 +1,20 @@
-function setLocal(todo) {
-  if (todo) {
-    localStorage.setItem("todo");
+function getToken(name) {
+  if (window.localStorage) {
+    return localStorage.getItem(name);
   }
-  return todo;
+  return "";
 }
 
-export default setLocal;
+function setToken(name, value) {
+  if (window.localStorage) {
+    localStorage.setItem(name, value);
+  }
+}
+
+function removeToken(name) {
+  if (window.localStorage) {
+    localStorage.removeItem(name);
+  }
+}
+
+export { getToken, setToken, removeToken };

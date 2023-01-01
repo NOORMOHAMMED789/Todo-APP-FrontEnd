@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
+import { setToken, getToken } from "../../setLocalstroage";
 const URL = process.env.REACT_APP_API_URL || "http://localhost:3001";
 
 const Login = () => {
@@ -61,7 +62,18 @@ const Login = () => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          console.log("reached here");
+          if (data.status === "Failed") {
+            setMessage(data.message);
+          } else {
+            const token = data.token;
+            setToken("token", token);
+            if (token === getToken("token")) {
+              console.log(token);
+              console.log(data.name);
+              setToken("Useremail", data.email);
+              navigate("/todo");
+            }
+          }
         })
         .catch((e) => {
           console.log(e);

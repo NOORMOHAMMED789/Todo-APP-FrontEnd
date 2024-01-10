@@ -16,21 +16,14 @@
   box-shadow: 8px 15px 8px gray;
   border-radius: 10px;
   position: relative;
-  animation: myfirst 3s 2;
+  animation: myfirst 1s 2;
+}
+.todolist-body > button {
+  margin-left: 15px;
 }
 
 @keyframes myfirst {
   0% {
-    background: red;
-    left: 0px;
-    top: 0px;
-  }
-  50% {
-    background: yellow;
-    left: 100px;
-    top: 0px;
-  }
-  100% {
     background: red;
     left: 0px;
     top: 0px;

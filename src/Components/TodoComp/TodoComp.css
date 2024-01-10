@@ -3,8 +3,8 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;
-  opacity: 2;
-  height: 100%;
+  opacity: 1;
+  height: 100vh;
   object-fit: cover;
 }
 
